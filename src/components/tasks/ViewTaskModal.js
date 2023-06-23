@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { db } from "../../firebase";
 import { Modal, Button, Form } from "react-bootstrap";
+import StatusPill from "./StatusPill";
 
 export default function ViewTaskModal({ task, handleClose, show }) {
   const [editMode, setEditMode] = useState(false);
@@ -56,6 +57,7 @@ export default function ViewTaskModal({ task, handleClose, show }) {
           </Form.Group>
 
           <Form.Group controlId="formDueDate">
+        
             <Form.Label>Due Date</Form.Label>
             <Form.Control type="date" name="due_date" value={formData.due_date} onChange={handleChange} />
           </Form.Group>
@@ -87,12 +89,21 @@ export default function ViewTaskModal({ task, handleClose, show }) {
         <Modal.Title>{task.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p className="small-title">Description</p>
-        <p>{task.description}</p>
-        <p className="small-title">Due Date</p>
-        <p>{new Date(task.due_date.seconds * 1000).toISOString().split('T')[0]}</p>
-        <p className="small-title">Status</p>
-        <p>{task.status}</p>
+        
+        <div className="d-flex justify-content-between">
+        <div> 
+            <p className="small-title">Due Date</p>
+            <p>{new Date(task.due_date.seconds * 1000).toISOString().split('T')[0]}</p>
+        </div>
+        <div className="mr-5">
+            <p className="small-title">Status</p>
+            <p><StatusPill status={task.status} /></p>
+        </div>
+        </div>
+        <div>
+            <p className="small-title">Description</p>
+            <p>{task.description}</p>
+        </div>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>

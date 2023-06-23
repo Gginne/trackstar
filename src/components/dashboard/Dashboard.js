@@ -29,7 +29,7 @@ export default function Dashboard() {
         case "title":
           return a.title.localeCompare(b.title);
         case "due_date":
-          return b.due_date.seconds - a.due_date.seconds;
+          return a.due_date.seconds - b.due_date.seconds;
         case "status":
           const statusOrder = {
             "not started": 0,
