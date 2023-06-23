@@ -26,6 +26,7 @@ export default function ViewTaskModal({ task, handleClose, show }) {
             due_date: db.formatDate(formData.due_date),
         });
         setEditMode(false);
+        handleClose();
     };
     
   return editMode ? (

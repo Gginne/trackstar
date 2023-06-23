@@ -2,6 +2,7 @@ import React from 'react'
 import Table from 'react-bootstrap/Table';
 import {faEye, faTrash} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import StatusPill from '../tasks/StatusPill';
 export default function TaskTable({tasks, onDelete, onView}) {
   return (
     <div className="card shadow-sm rounded w-100 border-0">
@@ -24,7 +25,7 @@ export default function TaskTable({tasks, onDelete, onView}) {
                 <td style={{width: "20%"}}>{task.title}</td>
                 <td className='text-truncate' style={{width: '35%', maxWidth: '500px'}}>{task.description}</td>
                 <td style={{width:  "15%"}}>{new Date(task.due_date.seconds*1000).toISOString().split('T')[0]}</td>
-                <td style={{width: "15%"}}>{task.status}</td>
+                <td style={{width: "15%"}}><StatusPill status={task.status} /></td>
                 
                 <td style={{width:  "15%"}}>
                   <div className="d-flex ">
