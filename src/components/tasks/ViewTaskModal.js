@@ -48,9 +48,9 @@ export default function ViewTaskModal({ task, handleClose, show }) {
           <Form.Group controlId="formStatus">
             <Form.Label>Status</Form.Label>
             <Form.Control as="select" name="status" onChange={handleChange}>
-              <option value="not started" selected={task.status == "not started"}>Not Started</option>
-              <option value="in progress" selected={task.status == "in progress"}>In Progress</option>
-              <option value="completed" selected={task.status == "completed"}>Completed</option>
+              <option value="not started" selected={task.status === "not started"}>Not Started</option>
+              <option value="in progress" selected={task.status === "in progress"}>In Progress</option>
+              <option value="completed" selected={task.status === "completed"}>Completed</option>
             </Form.Control>
           </Form.Group>
 

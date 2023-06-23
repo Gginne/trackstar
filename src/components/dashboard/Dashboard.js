@@ -17,7 +17,7 @@ export default function Dashboard() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
 
-  const [displayMode, setDisplayMode] = useState("table");
+  const [displayMode] = useState("table");
 
 
   const handleTaskSorting = (e) => {
@@ -37,9 +37,10 @@ export default function Dashboard() {
             "completed": 2,
           }
           return statusOrder[a.status] - statusOrder[b.status];
+        default:
+          return 0;
       }
-    
-      return 0;
+  
     })
 
     setSortedTasks(taskCopy)
